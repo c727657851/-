@@ -1,0 +1,29 @@
+1 用户系统
+ 1 使用django自带的用户系统
+ 2 重新定制
+ 3 前后台使用同一个用户系统   前台注册的是普通用户  前途注册的是普通用户 把用户is_staff改为1之后可以登录后台
+
+2 自定义User模型
+ 单独创建一个应用来管理用户系统
+ 全部重写 继承自AbstractBaseUser
+ 重新定制UserManger
+ 添加Auth_User_Model到settings.py中
+ 映射到数据库中
+
+3 前后台使用同一个登录页面
+ 登录的视图函数使用json进行交互
+ 所有的登录逻辑都写到 创建的管理用户系统的应用中
+
+4 公共配置操作
+ 1 配置好数据库
+ 2 配置好魔板文件路径
+ 3 配置好静态文件的路径
+ 4 配置好时区
+ 5 配置好模板的static标签
+
+5 需要安装
+ 1 mysqlclient  # 操作数据库
+ 2 pymysql   # 操作数据库
+ 3 pillow   # 验证码
+ 4 django-redis  # 用来做为缓存
+ 5 aliyun-python-sdk-core  # 阿里云短信服务API
